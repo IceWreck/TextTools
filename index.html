@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>TextTools</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+    <script type="text/javascript" src="cordova.js"></script>
+    <link rel="stylesheet" href="app.min.css">
+    <style>
+        .app-topbar {
+            background-color: #DD4539;
+        }
+    </style>
+</head>
+
+
+<body>
+    <div class="app-page" data-page="home">
+        <div class="app-topbar">
+            <div class="app-title"><strong>Text Tools</strong></div>
+        </div>
+        <div class="app-content">
+            <div class="app-section">
+                <p>
+                    <center>
+                        <strong>What do you want to do with your text ?</strong></center>
+                </p>
+            </div>
+            <div class="app-section">
+                <div class="app-button red" data-target="upcase">UpperCase Text</div>
+                <div class="app-button green" data-target="lowcase">LowerCase Text</div>
+                <div class="app-button blue" data-target="titlecase">Title Case Text</div>
+                <div class="app-button red" data-target="sencase">Sentence Case</div>
+                <div class="app-button green" data-target="wc">Word/Char Counter</div>
+                <div class="app-button blue" data-target="rt">Placeholder Text Generator</div>
+            </div>
+            <br>
+            <br>
+            <div class="app-section">
+                <p>
+                    <center>
+                        <div class="app-button red" onclick="window.open('http://www.abifog.com/about-abifog.html', '_system');">About Developer</div>
+
+                    </center>
+                </p>
+            </div>
+        </div>
+    </div>
+    <!---upcase-->
+    <div class="app-page" data-page="upcase">
+        <div class="app-topbar">
+            <div class="app-button left" data-back data-autotitle></div>
+            <div class="app-title">Uppercase Text</div>
+        </div>
+        <div class="app-content">
+            <div class="app-section">
+                <textarea id="p1" class="app-input" placeholder="Enter Your Text Here"></textarea>
+                <div onclick="uppercase()" class="app-button green">Modify Text</div>
+            </div>
+            <div class="app-section">
+                <p>
+                    <center>
+                        Uppercase Text converts your text to uppercase. In other words, it capitalizes text.
+                        <br>
+                        <br> Your Text Will Be Displayed Below
+                        <hr />
+                    </center>
+                </p>
+                <p id="p1r">
+                </p>
+                <hr>
+                <div onclick="upcopy()" class="app-button green">Copy To Clipboard</div>
+            </div>
+        </div>
+    </div>
+    <!---lowcase-->
+    <div class="app-page" data-page="lowcase">
+        <div class="app-topbar">
+            <div class="app-button left" data-back data-autotitle></div>
+            <div class="app-title">Lowercase Text</div>
+        </div>
+        <div class="app-content">
+            <div class="app-section">
+                <textarea id="p2" class="app-input" placeholder="Enter Your Text Here"></textarea>
+                <div onclick="lowercase();" class="app-button green">Modify Text</div>
+            </div>
+            <div class="app-section">
+                <p>
+                    <center>
+                        Lowercase Text converts your text to lowercase.
+                        <br>
+                        <br> Your Text Will Be Displayed Below
+                        <hr />
+                    </center>
+                </p>
+                <p id="p2r">
+                </p>
+                <hr>
+                <div onclick="lowcopy()" class="app-button green">Copy To Clipboard</div>
+            </div>
+        </div>
+    </div>
+    <!---title case-->
+    <div class="app-page" data-page="titlecase">
+        <div class="app-topbar">
+            <div class="app-button left" data-back data-autotitle></div>
+            <div class="app-title">Titlecase Text</div>
+        </div>
+        <div class="app-content">
+            <div class="app-section">
+                <textarea id="p3" class="app-input" placeholder="Enter Your Text Here"></textarea>
+                <div onclick="titlecase();" class="app-button green">Modify Text</div>
+            </div>
+            <div class="app-section">
+                <p>
+                    <center>
+                        Lowercase Text converts your text to lowercase.
+                        <br>
+                        <br> Your Text Will Be Displayed Below
+                        <hr />
+                    </center>
+                </p>
+                <p id="p3r">
+                </p>
+                <hr>
+                <div onclick="titlecopy()" class="app-button green">Copy To Clipboard</div>
+            </div>
+        </div>
+    </div>
+    <!-- sentense-->
+    <div class="app-page" data-page="sencase">
+        <div class="app-topbar">
+            <div class="app-button left" data-back data-autotitle></div>
+            <div class="app-title">Sentencecase Text</div>
+        </div>
+        <div class="app-content">
+            <div class="app-section">
+                <textarea id="p4" class="app-input" placeholder="Enter Your Text Here"></textarea>
+                <div onclick="sencase();" class="app-button green">Modify Text</div>
+            </div>
+            <div class="app-section">
+                <p>
+                    <center>
+                        Sentencecase Text converts your text in the form in which we write a sentence. Eg: "lorem ipsum dolor sit amet" will be converted to "Lorem ipsum dolor sit amet."
+                        <br>
+                        <br> Your Text Will Be Displayed Below
+                        <hr />
+                    </center>
+                </p>
+                <p id="p4r">
+                </p>
+                <hr>
+                <div onclick="sencopy()" class="app-button green">Copy To Clipboard</div>
+            </div>
+        </div>
+    </div>
+    <!---count-->
+    <div class="app-page" data-page="wc">
+        <div class="app-topbar">
+            <div class="app-button left" data-back data-autotitle></div>
+            <div class="app-title">Count Text</div>
+        </div>
+        <div class="app-content">
+            <div class="app-section">
+                <textarea id="p5" class="app-input" placeholder="Enter Your Text Here"></textarea>
+                <div onclick="count();" class="app-button green">Count Text</div>
+            </div>
+            <div class="app-section">
+                <p>
+                    <center>
+                        This counts the number of words and characters in your text.
+                        <br>
+                        <br> Your Output Will Be Displayed Below
+                        <hr />
+                    </center>
+                </p>
+                <p id="p5r">
+                </p>
+                <hr>
+            </div>
+        </div>
+    </div>
+    <div class="app-page" data-page="rt">
+        <div class="app-topbar">
+            <div class="app-button left" data-back data-autotitle></div>
+            <div class="app-title"><strong>Placeholder Text</strong></div>
+        </div>
+        <div class="app-content">
+            <div class="app-section">
+                <p>
+                    <center>
+                        <strong>Copy Random Placeholder Text</strong>
+                    </center>
+                </p>
+            </div>
+            <div class="app-section">
+                <div class="app-button green" onclick="rtw()">1 Word</div>
+                <div class="app-button green" onclick="rts()">1 Sentence</div>
+                <div class="app-button green" onclick="rtt()">1 Title</div>
+                <div class="app-button green" onclick="rtp()">1 Paragraph</div>
+            </div>
+        </div>
+    </div>
+    <!--over-->
+    <script src="zepto.js"></script>
+
+    <script src="app.min.js"></script>
+    <script src="main.js" type="text/javascript"></script>
+    <script>
+        App.controller('home', function (page) {
+            // put stuff here
+        });
+
+        App.controller('page2', function (page) {
+            // put stuff here
+        });
+
+        try {
+            App.restore();
+        } catch (err) {
+            App.load('home');
+        }
+        document.addEventListener("deviceready", function () {
+
+            document.addEventListener("backbutton", function () {
+                App.load('home');
+            })
+
+        });
+    </script>
+</body>
+
+</html>
